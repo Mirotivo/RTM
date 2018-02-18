@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading top-bar">
+          <div class="col-md-8 col-xs-8">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-book"></span> Contacts</h3>
+          </div>
+        </div>
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr id="{{user._id}}" class="list-group-item"  *ngFor="let user of users" (click)="SelectUser($event,user)"><td>{{user.FirstName}} {{user.LastName}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="chatbody">
+        <div class="panel panel-primary">
+          <div class="panel-heading top-bar">
+            <div class="col-md-8 col-xs-8">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - {{activeuser.FirstName}} {{activeuser.LastName}}</h3>
+            </div>
+          </div>
+          <div id="msg_container_base" class="panel-body msg_container_base">
+            <div *ngFor="let message of messages;">
+                <div class="row msg_container base_sent" *ngIf="direction(message) == 'Right'">
+                  <div class="col-md-10 col-xs-10">
+                    <div class="messages msg_sent">
+                      <p>{{message.Message}}</p>
+                      <time datetime="2009-11-13T20:00">{{message.Sender.FirstName}} {{message.Sender.LastName}} • 51 min</time>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-xs-2 avatar">
+                    <img [src]="message.Sender.Profile" class=" img-responsive" onerror="this.src='http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg';">
+                  </div>
+                </div>
+                <div class="row msg_container base_receive" *ngIf="direction(message) != 'Right'">
+                  <div class="col-md-2 col-xs-2 avatar">
+                    <img [src]="message.Sender.Profile" class=" img-responsive" onerror="this.src='http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg';">
+                  </div>
+                  <div class="col-md-10 col-xs-10">
+                    <div class="messages msg_receive">
+                      <p>{{message.Message}}</p>
+                      <time datetime="2009-11-13T20:00">{{message.Sender.FirstName}} {{message.Sender.LastName}} • 51 min</time>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <form action="">                  
+              <div class="input-group">
+                  <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..."  name="message" [(ngModel)]="activemessage" (keyup)="$event.keyCode == 13" />
+                  <span class="input-group-btn"><button class="btn btn-primary btn-sm" id="btn-chat" (click)="sendMessage()"><i class="fa fa-send fa-1x" aria-hidden="true"></i></button></span>
+              </div>
+            </form>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<div [@routerTransition]>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+    <agm-marker  *ngFor="let location of locations; let i = index" [latitude]="location.Latitude" [longitude]="location.Longitude">
+      <agm-info-window>
+        <h3><strong>{{location.Name}}</strong></h3>
+        <p>{{distance(lat,lng,location.Latitude,location.Longitude,"K")}} Km</p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+
+  <input type="button" value="Save Location" (click)='open(content)' class="btn btn-primary"/>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+      <form #LocationForm="ngForm">
+        <div class="modal-body">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12 form-group required">
+                      <label>Location</label>
+                      <input type="text" placeholder="Enter Location Name Here.." class="form-control" #LocationName="ngModel" name="Name"
+                        [(ngModel)]="Name" required>
+                      <div *ngIf="LocationName.invalid && (LocationName.dirty || LocationName.touched)" class="alert alert-danger">Location Name is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="Send();"  [disabled]="!LocationForm.valid" >Save</button>
+          <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        </div>
+      </form>
+  </ng-template>
+</div>

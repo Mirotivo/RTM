@@ -1,0 +1,57 @@
+<div class="container"   [@routerTransition]>
+	<div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <table class="table table-list-search">
+                <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Description</th>
+                    <th>Start Date</th>
+                    <th>Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let activity of activities; let i = index; trackBy:trackByIndex">
+                    <td (click)='open(content,activity)'>{{activity.Name}}</td>
+                    <td (click)='open(content,activity)'>{{activity.Description}}</td>
+                    <td (click)='open(content,activity)'>{{activity.StartDate}}</td>
+                    <td (click)='open(content,activity)'>{{activity.Members.length}}</td>
+                    <td>
+                        <!-- <button  (click)='ShowModal(user)' class="btn btn-primary glyphicon glyphicon-edit"></button> -->
+                        <!-- <button  (click)='Delete(activity)' class="btn btn-primary glyphicon glyphicon-remove"></button> -->
+                    </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </div>
+    </div>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <table class="table table-list-search">
+              <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+              </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let member of currentactivity.Members;">
+                  <td>{{member.FirstName}} {{member.LastName}}</td>
+                  <td>{{member.PhoneNumber}}</td>
+                  <td>{{member.Email}}</td>
+                  </tr>
+              </tbody>
+          </table>   
+          </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

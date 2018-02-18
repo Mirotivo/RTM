@@ -1,0 +1,65 @@
+<div class="col-lg-offset-1 col-lg-10 well"  [@routerTransition]>
+  <div class="row">
+    <form #RegisterForm="ngForm">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-6 form-group required">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter First Name Here.." class="form-control" #FirstName="ngModel" name="FirstName" [(ngModel)]="user.FirstName" required>
+            <div *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="alert alert-danger">First Name is required.</div>
+          </div>
+          <div class="col-sm-6 form-group required">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter Last Name Here.." class="form-control" #LastName="ngModel" name="LastName" [(ngModel)]="user.LastName" required>
+            <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" class="alert alert-danger">Last Name is required.</div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group required">
+              <label>Email Address</label>
+              <input type="text" placeholder="Enter Email Address Here.." class="form-control" #Email="ngModel" name="Email" [(ngModel)]="user.Email" readonly required>
+              <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">Email is required.</div>
+            </div>
+            <div class="col-sm-6 form-group required">
+              <label>Phone Number</label>
+              <input type="text" placeholder="Enter Phone Number Here.." class="form-control" #PhoneNumber="ngModel" name="PhoneNumber" [(ngModel)]="user.PhoneNumber" required>
+              <div *ngIf="PhoneNumber.invalid && (PhoneNumber.dirty || PhoneNumber.touched)" class="alert alert-danger">Phone Number is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="Address" [(ngModel)]="user.Address"></textarea>
+        </div>	
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <label>City</label>
+            <input type="text" placeholder="Enter City Name Here.." class="form-control" name="City" [(ngModel)]="user.City">
+          </div>	
+          <div class="col-sm-4 form-group">
+            <label>State</label>
+            <input type="text" placeholder="Enter State Name Here.." class="form-control" name="State" [(ngModel)]="user.State">
+          </div>	
+          <div class="col-sm-4 form-group">
+            <label>Zip</label>
+            <input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="Zip" [(ngModel)]="user.Zip">
+          </div>		
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <label>Title</label>
+            <input type="text" placeholder="Enter Designation Here.." class="form-control" name="Title" [(ngModel)]="user.Title">
+          </div>		
+          <div class="col-sm-6 form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Enter Company Name Here.." class="form-control" name="Company" [(ngModel)]="user.Company">
+          </div>	
+        </div>						
+        <div class="form-group">
+          <label>Website</label>
+          <input type="text" placeholder="Enter Website Name Here.." class="form-control" name="Website" [(ngModel)]="user.Website">
+        </div>
+        <button type="button" class="btn btn-lg btn-info" [disabled]="!RegisterForm.valid" (click)='Send()'>Submit</button>					
+      </div> 
+    </form>
+  </div>
+</div>

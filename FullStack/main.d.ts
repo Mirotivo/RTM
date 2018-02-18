@@ -1,0 +1,13 @@
+declare var express: any, bodyParser: any;
+declare var app: any;
+declare var ObjectID: any;
+declare var MongoClient: any;
+declare var local: string;
+declare var remote: string | undefined;
+declare var connection: string | undefined;
+declare var ServiceUser: any;
+declare var ServiceActivity: any;
+declare var ServiceChat: any;
+declare var ServiceMap: any;
+declare var ServiceReport: any;
+declare var Menu: any;

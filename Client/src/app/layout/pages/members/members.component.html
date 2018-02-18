@@ -1,0 +1,89 @@
+<div class="container"   [@routerTransition]>
+	<div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <form action="#" method="get">
+                <div class="input-group">
+                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                    <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="fa fa-search-plus" (click)='Read()'></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <input type="button" value="Print" (click)="Print()" >
+        <div class="col-md-offset-1 col-md-10">
+            <table class="table table-list-search">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; let i = index; trackBy:trackByIndex">
+                    <td>{{user.FirstName}} {{user.LastName}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{user.PhoneNumber}}</td>
+                    <td>{{user.Title}}</td>
+                    <td>{{user.Company}}</td>
+                    <td>
+                        <button (click)="open(content,user)" class="btn btn-primary fa fa-edit" ></button>
+                        <button  (click)='Delete(user)' class="btn btn-primary fa fa-remove"></button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Information</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')"> <span aria-hidden="true">&times;</span> </button>
+    </div>
+    <div class="modal-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" [(ngModel)]="currentuser.FirstName">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" [(ngModel)]="currentuser.LastName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" [(ngModel)]="currentuser.Email" readonly>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="title" name="title" id="title" class="form-control input-sm" placeholder="Title" [(ngModel)]="currentuser.Title">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="company" name="company" id="company" class="form-control input-sm" placeholder="Company" [(ngModel)]="currentuser.Company">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <input type="button" value="Save" class="btn btn-info" (click)="Update(currentuser)">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

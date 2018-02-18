@@ -1,0 +1,63 @@
+[{
+  "Name": "",
+  "Description": "زيارات دورية لدار المسنين و تكون الزيارة مرتبطة بمشروع نقل خبرات من المسنين لنا او للشباب. (نتعلم منهم حاجة جديدة)",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"داليا","LastName":"حسام","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "مشروع ربحي للجمعية حتى يتسنّى لنا تمويل النشاطات الاخرى. ILETS",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"اسلام","LastName":"","PhoneNumber":"","Email":""},
+    {"FirstName":"محمد","LastName":"حسيني","PhoneNumber":"","Email":""},
+    {"FirstName":"عمرو","LastName":"حسني","PhoneNumber":"","Email":""},
+    {"FirstName":"هالة","LastName":"فرج","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "جمعية غوث و مساعدات الصعيد و مشروع السعادة.",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"كريم","LastName":"مجدي","PhoneNumber":"","Email":""},
+    {"FirstName":"محمد","LastName":"حسيني","PhoneNumber":"","Email":""},
+    {"FirstName":"محمود","LastName":"مجدي","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "Conversation Club",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"محمد","LastName":"حسيني","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "Co-Working space و إعادة تأهيل المقر",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"إسلام","LastName":"","PhoneNumber":"","Email":""},
+    {"FirstName":"راوية","LastName":"","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "Recycling",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"محمود","LastName":"أحمد","PhoneNumber":"","Email":""}
+  ]
+},
+{
+  "Name": "",
+  "Description": "Database",
+  "StartDate": "28/10/2017",
+  "Members": [
+    {"FirstName":"Amr","LastName":"Mostafa","PhoneNumber":"","Email":""}
+  ]
+}
+]

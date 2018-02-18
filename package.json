@@ -1,0 +1,37 @@
+{
+  "name": "dnb",
+  "version": "1.0.0",
+  "description": "Non-governmental organization - Development No Borders",
+  "main": "FullStack/main",
+  "types": "FullStack/main",
+  "scripts": {
+    "start": "node FullStack/main.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.11.0",
+    "@types/node": "^8.5.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-cssmin": "0.1.7",
+    "gulp-typescript": "^3.2.3",
+    "gulp-uglify": "2.0.1",
+    "request": "^2.83.0",
+    "rimraf": "2.6.1",
+    "tabe": "^1.0.4",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "fluentreports": "^1.1.4",
+    "mongodb": "^2.2.33",
+    "password-hash": "^1.2.2",
+    "socket.io": "^2.0.4",
+    "tsc": "^1.20150623.0"
+  }
+}

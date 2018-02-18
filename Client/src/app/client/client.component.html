@@ -1,0 +1,72 @@
+<div style="height:50vh;overflow-x:hidden;">
+    <mat-tab-group>
+        <mat-tab *ngFor="let category of categories;" label="{{ category.Name }}">
+
+            <mat-table #table [dataSource]="category.Items">
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+                </ng-container>
+
+                <!-- Small Column -->
+                <ng-container matColumnDef="Small">
+                    <mat-header-cell *matHeaderCellDef> Small </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <div *ngIf="element.Small > 0">
+                            <button mat-button (click)="AddItem(element,0)">{{element.Small}}</button>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Medium Column -->
+                <ng-container matColumnDef="Medium">
+                    <mat-header-cell *matHeaderCellDef> Medium </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <div *ngIf="element.Medium > 0">
+                            <button mat-button (click)="AddItem(element,1)">{{element.Medium}}</button>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Large Column -->
+                <ng-container matColumnDef="Large">
+                    <mat-header-cell *matHeaderCellDef> Large </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <div *ngIf="element.Large > 0">
+                            <button mat-button (click)="AddItem(element,2)">{{element.Large}}</button>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<div style="height:30vh;overflow-x:hidden;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Selected</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of SelectedItems;">
+                <td>{{item.Name}}</td>
+                <td>
+                    <button mat-button (click)="ChangeQuantity(item,-1)">-</button>{{item.Quantity}}
+                    <button mat-button (click)="ChangeQuantity(item,1)">+</button>
+                </td>
+                <td>{{item.Price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<label style="margin-left: 20px;margin-top:20px;"><b>Total Price : </b>{{TotalSum}}</label>

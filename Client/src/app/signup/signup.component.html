@@ -1,0 +1,39 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+            <h1>Development No Border</h1>
+            <form role="form" [formGroup]="RegisterForm" (ngSubmit)="ngOnSubmit(RegisterForm.value)">
+                <div class="form-content">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <input type="text" class="form-control input-underline input-lg" id="" formControlName="FirstName" placeholder="First Name" [(ngModel)]="user.FirstName">
+                            <div *ngIf="RegisterForm.controls.FirstName.invalid && (RegisterForm.controls.FirstName.dirty || RegisterForm.controls.FirstName.touched)" class="alert alert-danger">First Name is required.</div> 
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="text" class="form-control input-underline input-lg" id="" formControlName="LastName" placeholder="Last Name" [(ngModel)]="user.LastName">
+                            <div *ngIf="RegisterForm.controls.LastName.invalid && (RegisterForm.controls.LastName.dirty || RegisterForm.controls.LastName.touched)" class="alert alert-danger">Last Name is required.</div> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="" formControlName="Email" name="Email" placeholder="Email" [(ngModel)]="user.Email">
+                         <div *ngIf="RegisterForm.controls.Email.invalid && (RegisterForm.controls.Email.dirty || RegisterForm.controls.Email.touched)" class="alert alert-danger">Valid Email is required.</div> 
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" formControlName="Password" name="Password" placeholder="Password" [(ngModel)]="user.Password">
+                         <div *ngIf="RegisterForm.controls.Password.invalid && (RegisterForm.controls.Password.dirty || RegisterForm.controls.Password.touched)" class="alert alert-danger">Password is required.</div> 
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" formControlName="ConfirmPassword" name="ConfirmPassword" placeholder="Repeat Password">
+                         <div *ngIf="RegisterForm.get('ConfirmPassword').hasError('MatchPassword') && (RegisterForm.controls.ConfirmPassword.dirty || RegisterForm.controls.ConfirmPassword.touched)" class="alert alert-danger" >Password not match</div> 
+                    </div>
+                    <div *ngIf="Failed" class="alert alert-danger">This Email is already registered !</div> 
+                </div>
+                <input class="btn rounded-btn" type="submit" [disabled]="!RegisterForm.valid" value="Register" />
+                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+            </form>
+        </div>
+    </div>
+</div>
